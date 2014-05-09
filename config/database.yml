@@ -1,0 +1,25 @@
+development:
+  adapter: postgresql
+  host: localhost
+  encoding: unicode
+  database: snapshot_rails
+  port: 5432
+  username: aung
+  password: 
+
+test: &test
+  adapter: postgresql
+  encoding: unicode
+  database: snapshot_rails_test
+  pool: 5
+  username: aung
+  password: 
+
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: snapshot_rails_production
+  pool: 5
+  username: aung
+  password:

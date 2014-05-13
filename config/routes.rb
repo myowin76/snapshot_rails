@@ -14,5 +14,15 @@ Rails.application.routes.draw do
 
   end
 
-  # root 'admin/regions#index'
+
+  # for locale
+
+  # scope ':locale', locale: /#{I18n.available_locales.join("|")}/ do
+  #   resources :subscribers
+  #   root 'home#index'
+  # end
+
+  # match '*path', to: redirect{|params| "/#{I18n.default_locale}/#{params[:path]}"}, via: :all
+  # match '', to: redirect("/#{I18n.default_locale}"), via: :get
+
 end

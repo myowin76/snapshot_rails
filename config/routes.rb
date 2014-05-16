@@ -1,6 +1,15 @@
 require 'api_constraints'
+
 Rails.application.routes.draw do
   
+
+  namespace :admin do
+    resources :retailers
+  end
+
+  namespace :admin do
+    resources :sectors
+  end
 
   namespace :api, defaults: {format: 'json'} do
     scope module: :v1, constraints: ApiConstraints.new(version: 1, default: true) do      
@@ -9,11 +18,12 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-  
-    # resources :users
-
+    resources :users
   end
 
+
+  get 'login', to: 'sessions#new', as: 'login'
+  get 'logout', to: 'sessions#destroy', as: 'logout'
 
   # for locale
 

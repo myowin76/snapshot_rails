@@ -11,9 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20140513142407) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "retailers", force: true do |t|
+    t.string   "name"
+    t.integer  "sector_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "retailers", ["sector_id"], name: "index_retailers_on_sector_id", using: :btree
+
+  create_table "sectors", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "username"
+    t.string   "email"
+    t.string   "firstname"
+    t.string   "lastname"
+    t.boolean  "active"
+    t.boolean  "deleted"
+    t.integer  "deleted_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "password_digest"
+    t.string   "auth_token"
+    t.string   "password_reset_token"
+    t.datetime "password_reset_sent_at"
+  end
 
 end

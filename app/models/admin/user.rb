@@ -15,6 +15,12 @@ class Admin::User < ActiveRecord::Base
 	def self.find_by_username_or_email(option)
 	    where("username =? OR email =?", option, option).first
 	end
+
+	def role?(role)
+      return !!self.roles.find_by_name(role.to_s)
+  end
+
+	private
 	
 	def send_password_reset
 	  generate_token(:password_reset_token)

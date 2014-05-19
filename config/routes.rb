@@ -1,26 +1,27 @@
 require 'api_constraints'
 
 Rails.application.routes.draw do
-  
-
-  get 'main/index'
 
   namespace :admin do
-    resources :retailers
-  end
-
-  namespace :admin do
-    resources :sectors
+    resources :roles
   end
 
   namespace :api, defaults: {format: 'json'} do
     scope module: :v1, constraints: ApiConstraints.new(version: 1, default: true) do      
-      # resources :property_types
+      resources :sectors
+      resources :retailers
+      resources :brand_owners
+      resources :brands
     end
   end
 
   namespace :admin do
+    resources :settings
     resources :users
+    resources :retailers
+    resources :sectors
+    resources :brand_owners
+    resources :brands
   end
 
 

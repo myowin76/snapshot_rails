@@ -1,0 +1,2 @@
+module Admin::BrandOwnersHelper
+end

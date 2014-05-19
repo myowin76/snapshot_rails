@@ -3,10 +3,17 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  before_filter :clear_setting_cache
+
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :alert => exception.message
   end
 
+
+
+  def clear_setting_cache
+    Admin::Setting.clear_cache!
+  end
 
   def store_location
     session[:return_to] = request.env['REQUEST_URI']
@@ -16,4 +23,5 @@ class ApplicationController < ActionController::Base
     redirect_to(session[:return_to] || default)
     session[:return_to] = nil
   end
+  
 end

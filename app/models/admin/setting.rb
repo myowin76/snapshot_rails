@@ -38,4 +38,11 @@ class Admin::Setting < ActiveRecord::Base
     setting.save
     cache[name] = value
   end
+
+  def database_and_table_exists?
+    # Returns false if table or database is unavailable.
+    # Catches all database-related errors, so that Setting will return nil
+    # instead of crashing the entire application.
+    table_exists? rescue false
+  end
 end

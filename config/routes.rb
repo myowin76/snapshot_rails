@@ -3,6 +3,8 @@ require 'api_constraints'
 Rails.application.routes.draw do
   
 
+  get 'main/index'
+
   namespace :admin do
     resources :retailers
   end
@@ -29,7 +31,7 @@ Rails.application.routes.draw do
 
   # scope ':locale', locale: /#{I18n.available_locales.join("|")}/ do
   #   resources :subscribers
-  #   root 'home#index'
+    root 'main#index'
   # end
 
   # match '*path', to: redirect{|params| "/#{I18n.default_locale}/#{params[:path]}"}, via: :all

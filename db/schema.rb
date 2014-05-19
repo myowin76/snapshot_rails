@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140519155310) do
+ActiveRecord::Schema.define(version: 20140519161239) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,6 +101,32 @@ ActiveRecord::Schema.define(version: 20140519155310) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "stores", force: true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "address2"
+    t.string   "address3"
+    t.string   "town"
+    t.string   "postcode"
+    t.integer  "store_format_id"
+    t.integer  "retailer_id"
+    t.integer  "country_id"
+    t.integer  "environment_type_id"
+    t.integer  "channel_id"
+    t.decimal  "longitude",           precision: 15, scale: 10
+    t.decimal  "latitude",            precision: 15, scale: 10
+    t.integer  "photos_count"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "stores", ["channel_id"], name: "index_stores_on_channel_id", using: :btree
+  add_index "stores", ["country_id"], name: "index_stores_on_country_id", using: :btree
+  add_index "stores", ["environment_type_id"], name: "index_stores_on_environment_type_id", using: :btree
+  add_index "stores", ["retailer_id"], name: "index_stores_on_retailer_id", using: :btree
+  add_index "stores", ["store_format_id"], name: "index_stores_on_store_format_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username"

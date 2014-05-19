@@ -1,0 +1,39 @@
+%h1 Listing stores
+
+%table
+  %tr
+    %th Name
+    %th Address
+    %th Address2
+    %th Address3
+    %th Postcode
+    %th Store format
+    %th Retailer
+    %th Country
+    %th Longitude
+    %th Latitude
+    %th Description
+    %th
+    %th
+    %th
+
+  - @stores.each do |store|
+    %tr
+      %td= store.name
+      %td= store.address
+      %td= store.address2
+      %td= store.address3
+      %td= store.postcode
+      %td= store.store_format
+      %td= store.retailer
+      %td= store.country
+      %td= store.longitude
+      %td= store.latitude
+      %td= store.description
+      %td= link_to 'Show', store
+      %td= link_to 'Edit', edit_store_path(store)
+      %td= link_to 'Destroy', store, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Store', new_store_path

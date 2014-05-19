@@ -2,6 +2,8 @@ require 'api_constraints'
 
 Rails.application.routes.draw do
 
+  resources :stores
+
   namespace :admin do
     resources :environment_types
   end

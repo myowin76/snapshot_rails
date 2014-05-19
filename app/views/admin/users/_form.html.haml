@@ -1,0 +1,11 @@
+= simple_form_for(@admin_user) do |f|
+  = f.error_notification
+
+  = f.input :username
+  = f.input :email
+  = f.input :firstname
+  = f.input :lastname
+  = f.check_box :active
+  %h2 Roles
+  = f.association :roles, as: :check_boxes, :label => false
+  = f.submit

@@ -1,4 +1,4 @@
-class Admin::BrandsController < ApplicationController
+class Admin::BrandsController < Admin::AdminController
   before_action :set_admin_brand, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/brands

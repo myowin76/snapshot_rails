@@ -11,17 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140519114407) do
+ActiveRecord::Schema.define(version: 20140519150309) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "admin_roles", force: true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "brand_owners", force: true do |t|
     t.string   "name"
@@ -47,6 +40,13 @@ ActiveRecord::Schema.define(version: 20140519114407) do
 
   add_index "retailers", ["sector_id"], name: "index_retailers_on_sector_id", using: :btree
 
+  create_table "roles", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "roles_users", force: true do |t|
     t.integer "role_id"
     t.integer "user_id"
@@ -54,6 +54,16 @@ ActiveRecord::Schema.define(version: 20140519114407) do
 
   add_index "roles_users", ["role_id"], name: "index_roles_users_on_role_id", using: :btree
   add_index "roles_users", ["user_id"], name: "index_roles_users_on_user_id", using: :btree
+
+  create_table "saved_searches", force: true do |t|
+    t.string   "name"
+    t.text     "value"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "saved_searches", ["user_id"], name: "index_saved_searches_on_user_id", using: :btree
 
   create_table "sectors", force: true do |t|
     t.string   "name"

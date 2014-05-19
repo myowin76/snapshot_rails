@@ -2,13 +2,17 @@ class Admin::User < ActiveRecord::Base
 	
 	has_secure_password
 
-	has_and_belongs_to_many :roles
+
+	has_many :saved_searches
+	has_and_belongs_to_many :roles, :class_name => "Admin::Role"
+
+  # to do
+  # has_one :subscription
+  # after_create :create_subscription	
 
   def role?(role)
       return !!self.roles.find_by_name(role.to_s)
   end  
-
-	
 
 	before_create { generate_token(:auth_token) }
 
@@ -32,6 +36,6 @@ class Admin::User < ActiveRecord::Base
 	def generate_token(column)
 	  begin
 	    self[column] = SecureRandom.urlsafe_base64
-	  end while User.exists?(column => self[column])
+	  end while Admin::User.exists?(column => self[column])
 	end
 end

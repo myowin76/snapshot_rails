@@ -1,4 +1,4 @@
-class Admin::SettingsController < ApplicationController
+class Admin::SettingsController < Admin::AdminController
   before_action :set_admin_setting, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/settings

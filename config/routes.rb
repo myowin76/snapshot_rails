@@ -3,6 +3,10 @@ require 'api_constraints'
 Rails.application.routes.draw do
 
   namespace :admin do
+  get 'admin/dashboard'
+  end
+
+  namespace :admin do
     resources :roles
   end
 

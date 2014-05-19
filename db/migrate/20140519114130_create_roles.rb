@@ -1,6 +1,6 @@
-class CreateAdminRoles < ActiveRecord::Migration
+class CreateRoles < ActiveRecord::Migration
   def change
-    create_table :admin_roles do |t|
+    create_table :roles do |t|
       t.string :name
       t.text :description
 

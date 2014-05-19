@@ -1,4 +1,4 @@
-class Admin::UsersController < ApplicationController
+class Admin::UsersController < Admin::AdminController
   before_action :set_admin_user, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/users
@@ -40,6 +40,7 @@ class Admin::UsersController < ApplicationController
   # PATCH/PUT /admin/users/1
   # PATCH/PUT /admin/users/1.json
   def update
+    
     respond_to do |format|
       if @admin_user.update(admin_user_params)
         format.html { redirect_to @admin_user, notice: 'User was successfully updated.' }
@@ -69,6 +70,7 @@ class Admin::UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_user_params
-      params.require(:admin_user).permit(:username, :email, :firstname, :lastname, :active, :deleted, :deleted_by)
+      params.require(:admin_user).permit(:username, :email, :firstname, :lastname, 
+        :active, :deleted, :deleted_by, :role_ids => [])
     end
 end

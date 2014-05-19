@@ -1,4 +1,4 @@
-class Admin::RetailersController < ApplicationController
+class Admin::RetailersController < Admin::AdminController
   before_action :set_admin_retailer, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/retailers

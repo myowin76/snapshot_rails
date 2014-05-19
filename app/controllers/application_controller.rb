@@ -23,5 +23,14 @@ class ApplicationController < ActionController::Base
     redirect_to(session[:return_to] || default)
     session[:return_to] = nil
   end
+
+
+  def current_user
+    @current_user ||= Admin::User.find_by_auth_token!(cookies[:auth_token]) if cookies[:auth_token]
+  end
+
+  def authorize
+    redirect_to login_url, alert: "Not authorized" if current_user.nil?
+  end
   
 end

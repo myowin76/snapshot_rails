@@ -1,4 +1,4 @@
-class Admin::SectorsController < ApplicationController
+class Admin::SectorsController < Admin::AdminController
   before_action :set_admin_sector, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/sectors

@@ -25,7 +25,8 @@ gem 'backbone-on-rails'
 
 group :development, :test do
   gem 'sqlite3'
-  gem 'debugger'
+  # gem 'debugger'
+  gem 'byebug'
 end
 
 group :test do

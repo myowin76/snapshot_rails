@@ -1,0 +1,19 @@
+%h1 Listing admin_environment_types
+
+%table
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+
+  - @admin_environment_types.each do |admin_environment_type|
+    %tr
+      %td= admin_environment_type.name
+      %td= link_to 'Show', admin_environment_type
+      %td= link_to 'Edit', edit_admin_environment_type_path(admin_environment_type)
+      %td= link_to 'Destroy', admin_environment_type, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Environment type', new_admin_environment_type_path

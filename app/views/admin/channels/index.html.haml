@@ -1,0 +1,19 @@
+%h1 Listing admin_channels
+
+%table
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+
+  - @admin_channels.each do |admin_channel|
+    %tr
+      %td= admin_channel.name
+      %td= link_to 'Show', admin_channel
+      %td= link_to 'Edit', edit_admin_channel_path(admin_channel)
+      %td= link_to 'Destroy', admin_channel, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Channel', new_admin_channel_path

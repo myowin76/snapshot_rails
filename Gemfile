@@ -11,7 +11,8 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'jbuilder', '~> 2.0'
 
-gem 'haml', '~> 4.0.5'
+# gem 'haml', '~> 4.0.5'
+gem "haml-rails"
 gem 'simple_form'
 
 gem 'bcrypt', '~> 3.1.7'

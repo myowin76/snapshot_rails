@@ -1,43 +1,23 @@
-= form_for @store do |f|
-  - if @store.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@store.errors.count, "error")} prohibited this store from being saved:"
-      %ul
-        - @store.errors.full_messages.each do |msg|
-          %li= msg
+= simple_form_for @store do |f|
+  = f.error_notification
 
   .field
-    = f.label :name
-    = f.text_field :name
+    = f.input :name
   .field
-    = f.label :address
-    = f.text_field :address
+    = f.input :address
   .field
-    = f.label :address2
-    = f.text_field :address2
+    = f.input :address2
   .field
-    = f.label :address3
-    = f.text_field :address3
+    = f.input :address3
   .field
-    = f.label :postcode
-    = f.text_field :postcode
+    = f.input :town
   .field
-    = f.label :store_format
-    = f.text_field :store_format
+    = f.association :store_format
   .field
-    = f.label :retailer
-    = f.text_field :retailer
+    = f.association :retailer
   .field
-    = f.label :country
-    = f.text_field :country
+    = f.association :country
   .field
-    = f.label :longitude
-    = f.text_field :longitude
-  .field
-    = f.label :latitude
-    = f.text_field :latitude
-  .field
-    = f.label :description
-    = f.text_area :description
+    = f.input :description
   .actions
     = f.submit 'Save'

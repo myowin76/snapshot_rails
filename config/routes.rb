@@ -2,6 +2,10 @@ require 'api_constraints'
 
 Rails.application.routes.draw do
 
+  namespace :admin do
+    resources :audits
+  end
+
   resources :stores
 
   namespace :admin do

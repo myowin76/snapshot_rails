@@ -1,0 +1,19 @@
+= form_for @admin_audit do |f|
+  - if @admin_audit.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@admin_audit.errors.count, "error")} prohibited this admin_audit from being saved:"
+      %ul
+        - @admin_audit.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :audit_date
+    = f.date_select :audit_date
+  .field
+    = f.label :store
+    = f.text_field :store
+  .field
+    = f.label :photos_count
+    = f.number_field :photos_count
+  .actions
+    = f.submit 'Save'

@@ -1,0 +1,23 @@
+%h1 Listing admin_audits
+
+%table
+  %tr
+    %th Audit date
+    %th Store
+    %th Photos count
+    %th
+    %th
+    %th
+
+  - @admin_audits.each do |admin_audit|
+    %tr
+      %td= admin_audit.audit_date
+      %td= admin_audit.store
+      %td= admin_audit.photos_count
+      %td= link_to 'Show', admin_audit
+      %td= link_to 'Edit', edit_admin_audit_path(admin_audit)
+      %td= link_to 'Destroy', admin_audit, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Audit', new_admin_audit_path

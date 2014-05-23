@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140519161239) do
+ActiveRecord::Schema.define(version: 20140519164136) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "audits", force: true do |t|
+    t.date     "audit_date"
+    t.integer  "store_id"
+    t.integer  "user_id"
+    t.integer  "photos_count"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "audits", ["store_id"], name: "index_audits_on_store_id", using: :btree
+  add_index "audits", ["user_id"], name: "index_audits_on_user_id", using: :btree
 
   create_table "brand_owners", force: true do |t|
     t.string   "name"

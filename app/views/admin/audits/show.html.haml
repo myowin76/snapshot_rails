@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Audit date:
+  = @admin_audit.audit_date
+%p
+  %b Store:
+  = @admin_audit.store
+%p
+  %b Photos count:
+  = @admin_audit.photos_count
+
+= link_to 'Edit', edit_admin_audit_path(@admin_audit)
+\|
+= link_to 'Back', admin_audits_path

@@ -2,35 +2,9 @@ require 'api_constraints'
 
 Rails.application.routes.draw do
 
-  namespace :admin do
-    resources :audits
-  end
-
+  
   resources :stores
 
-  namespace :admin do
-    resources :environment_types
-  end
-
-  namespace :admin do
-    resources :channels
-  end
-
-  namespace :admin do
-    resources :store_formats
-  end
-
-  namespace :admin do
-    resources :countries
-  end
-
-  namespace :admin do
-  get 'admin/dashboard'
-  end
-
-  namespace :admin do
-    resources :roles
-  end
 
   namespace :api, defaults: {format: 'json'} do
     scope module: :v1, constraints: ApiConstraints.new(version: 1, default: true) do      
@@ -38,16 +12,27 @@ Rails.application.routes.draw do
       resources :retailers
       resources :brand_owners
       resources :brands
+      resources :stores
     end
   end
 
   namespace :admin do
+
+    get 'admin/dashboard'
+
+
     resources :settings
     resources :users
+    resources :roles
     resources :retailers
     resources :sectors
     resources :brand_owners
     resources :brands
+    resources :countries
+    resources :channels
+    resources :store_formats
+    resources :environment_types
+    resources :audits
   end
 
 

@@ -3,6 +3,8 @@ require 'api_constraints'
 Rails.application.routes.draw do
 
   
+  resources :photos
+
   resources :stores
 
 
@@ -13,6 +15,7 @@ Rails.application.routes.draw do
       resources :brand_owners
       resources :brands
       resources :stores
+      resources :audits
     end
   end
 

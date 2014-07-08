@@ -1,6 +1,6 @@
 class SavedSearch < ActiveRecord::Base
 	belongs_to :user, :class_name => "Admin::User"
-	serialize :value
+	serialize :value, JSON
 
 	
 end

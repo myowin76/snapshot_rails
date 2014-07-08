@@ -3,7 +3,7 @@ class Admin::User < ActiveRecord::Base
 	has_secure_password
 
 
-	has_many :saved_searches
+	has_many :saved_searches, :class_name => "SavedSearch"
 	has_and_belongs_to_many :roles, :class_name => "Admin::Role"
 
   # to do

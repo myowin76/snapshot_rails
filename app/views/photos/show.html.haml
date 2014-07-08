@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Audit:
+  = @photo.audit
+%p
+  %b Headline:
+  = @photo.headline
+%p
+  %b Published:
+  = @photo.published
+
+= link_to 'Edit', edit_photo_path(@photo)
+\|
+= link_to 'Back', photos_path

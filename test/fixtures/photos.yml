@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  audit_id: 
+  headline: MyString
+  published: false
+
+two:
+  audit_id: 
+  headline: MyString
+  published: false

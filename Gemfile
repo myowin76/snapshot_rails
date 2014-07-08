@@ -21,7 +21,7 @@ gem 'rubyzip', '>= 1.0.0'
 gem "paperclip", "~> 4.1"
 gem 'cancancan', '~> 1.7'
 
-gem 'backbone-on-rails'
+gem 'angularjs-rails'
 
 group :development, :test do
   gem 'sqlite3'

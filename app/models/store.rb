@@ -14,11 +14,9 @@ class Store < ActiveRecord::Base
   # validates :store_format, :presence => true
   # validates :environment_type, :presence => true
 
-
   geocoded_by :full_address
   after_validation :geocode, :if => :address_changed?
 
-  #acts_as_gmappable :process_geocoding => false
 
   def full_address
     [address, address2, address3, town, postcode, country_name(country_id)].compact.join(', ')
@@ -33,5 +31,6 @@ class Store < ActiveRecord::Base
   def country_name(id)
     Country.find_by_id(id).name unless id.nil?
   end
+
 
 end

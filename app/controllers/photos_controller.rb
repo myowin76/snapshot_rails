@@ -66,6 +66,7 @@ class PhotosController < ApplicationController
     def load_user_photos
       # Check all the  subscribed options and load here / and cache
 
+      # check user is a subscriber / admin / or upload .. so on
       # is user subscribed in a project?
         
         # is user subscribed only specific sectors

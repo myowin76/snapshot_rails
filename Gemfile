@@ -18,7 +18,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'geocoder'
 gem 'rubyzip', '>= 1.0.0'
-gem "paperclip", "~> 4.1"
+# gem "paperclip", "~> 4.1"
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'cancancan', '~> 1.7'
 
 gem 'angularjs-rails'

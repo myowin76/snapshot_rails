@@ -1,4 +1,4 @@
-class Admin::StoreFormatsController < ApplicationController
+class Admin::StoreFormatsController < Admin::AdminController
   before_action :set_admin_store_format, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/store_formats

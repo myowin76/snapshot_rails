@@ -3,10 +3,12 @@ require 'api_constraints'
 Rails.application.routes.draw do
 
   
-  resources :photos
+  
 
-  resources :stores
 
+  namespace :admin do
+    resources :photos
+  end
 
   namespace :api, defaults: {format: 'json'} do
     scope module: :v1, constraints: ApiConstraints.new(version: 1, default: true) do      
@@ -35,9 +37,12 @@ Rails.application.routes.draw do
     resources :channels
     resources :store_formats
     resources :environment_types
-    resources :audits
+    resources :audits do
+      resources :photos
+    end
   end
 
+  resources :stores
 
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'

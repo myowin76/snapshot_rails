@@ -1,4 +1,4 @@
-class Admin::EnvironmentTypesController < ApplicationController
+class Admin::EnvironmentTypesController < Admin::AdminController
   before_action :set_admin_environment_type, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/environment_types

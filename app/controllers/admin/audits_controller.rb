@@ -1,4 +1,4 @@
-class Admin::AuditsController < ApplicationController
+class Admin::AuditsController < Admin::AdminController
   before_action :set_admin_audit, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/audits

@@ -1,4 +1,4 @@
-class Admin::CountriesController < ApplicationController
+class Admin::CountriesController < Admin::AdminController
   before_action :set_admin_country, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/countries

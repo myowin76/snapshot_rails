@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @admin_media_vehicle.name
+
+= link_to 'Edit', edit_admin_media_vehicle_path(@admin_media_vehicle)
+\|
+= link_to 'Back', admin_media_vehicles_path

@@ -1,0 +1,45 @@
+%h1 Listing admin_stores
+
+%table
+  %tr
+    %th Name
+    %th Address
+    %th Address2
+    %th Address3
+    %th Town
+    %th Postcode
+    %th Store format
+    %th Retailer
+    %th Country
+    %th Environment type
+    %th Channel
+    %th Longitude
+    %th Latitude
+    %th Description
+    %th
+    %th
+    %th
+
+  - @admin_stores.each do |admin_store|
+    %tr
+      %td= admin_store.name
+      %td= admin_store.address
+      %td= admin_store.address2
+      %td= admin_store.address3
+      %td= admin_store.town
+      %td= admin_store.postcode
+      %td= admin_store.store_format
+      %td= admin_store.retailer
+      %td= admin_store.country
+      %td= admin_store.environment_type
+      %td= admin_store.channel
+      %td= admin_store.longitude
+      %td= admin_store.latitude
+      %td= admin_store.description
+      %td= link_to 'Show', admin_store
+      %td= link_to 'Edit', edit_admin_store_path(admin_store)
+      %td= link_to 'Destroy', admin_store, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Store', new_admin_store_path

@@ -1,0 +1,1 @@
+json.extract! @admin_store, :id, :name, :address, :address2, :address3, :town, :postcode, :store_format_id, :retailer_id, :country_id, :environment_type_id, :channel_id, :longitude, :latitude, :description, :created_at, :updated_at

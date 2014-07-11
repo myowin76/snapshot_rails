@@ -1,0 +1,19 @@
+%h1 Listing admin_media_vehicles
+
+%table
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+
+  - @admin_media_vehicles.each do |admin_media_vehicle|
+    %tr
+      %td= admin_media_vehicle.name
+      %td= link_to 'Show', admin_media_vehicle
+      %td= link_to 'Edit', edit_admin_media_vehicle_path(admin_media_vehicle)
+      %td= link_to 'Destroy', admin_media_vehicle, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Media vehicle', new_admin_media_vehicle_path

@@ -1,0 +1,2 @@
+module Admin::MediaVehiclesHelper
+end

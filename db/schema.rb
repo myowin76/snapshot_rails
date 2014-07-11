@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140711092952) do
+ActiveRecord::Schema.define(version: 20140711152721) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,12 @@ ActiveRecord::Schema.define(version: 20140711092952) do
   end
 
   add_index "brands", ["brand_owner_id"], name: "index_brands_on_brand_owner_id", using: :btree
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "channels", force: true do |t|
     t.string   "name"
@@ -140,9 +146,8 @@ ActiveRecord::Schema.define(version: 20140711092952) do
     t.integer  "country_id"
     t.integer  "environment_type_id"
     t.integer  "channel_id"
-    t.decimal  "longitude",           precision: 15, scale: 10
-    t.decimal  "latitude",            precision: 15, scale: 10
-    t.integer  "photos_count"
+    t.decimal  "longitude"
+    t.decimal  "latitude"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"

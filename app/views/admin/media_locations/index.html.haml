@@ -1,0 +1,19 @@
+%h1 Listing admin_media_locations
+
+%table
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+
+  - @admin_media_locations.each do |admin_media_location|
+    %tr
+      %td= admin_media_location.name
+      %td= link_to 'Show', admin_media_location
+      %td= link_to 'Edit', edit_admin_media_location_path(admin_media_location)
+      %td= link_to 'Destroy', admin_media_location, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Media location', new_admin_media_location_path

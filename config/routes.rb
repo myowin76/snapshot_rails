@@ -7,6 +7,26 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
+    resources :media_types
+  end
+
+  namespace :admin do
+    resources :media_vehicles
+  end
+
+  namespace :admin do
+    resources :media_locations
+  end
+
+  namespace :admin do
+    resources :stores
+  end
+
+  namespace :admin do
+    resources :categories
+  end
+
+  namespace :admin do
     resources :photos
   end
 
@@ -41,8 +61,6 @@ Rails.application.routes.draw do
       resources :photos
     end
   end
-
-  resources :stores
 
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'

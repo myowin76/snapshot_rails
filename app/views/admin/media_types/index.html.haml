@@ -1,0 +1,19 @@
+%h1 Listing admin_media_types
+
+%table
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+
+  - @admin_media_types.each do |admin_media_type|
+    %tr
+      %td= admin_media_type.name
+      %td= link_to 'Show', admin_media_type
+      %td= link_to 'Edit', edit_admin_media_type_path(admin_media_type)
+      %td= link_to 'Destroy', admin_media_type, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Media type', new_admin_media_type_path

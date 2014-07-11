@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140711152721) do
+ActiveRecord::Schema.define(version: 20140711165256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,24 @@ ActiveRecord::Schema.define(version: 20140711152721) do
   end
 
   create_table "environment_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "media_locations", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "media_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "media_vehicles", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -158,6 +176,25 @@ ActiveRecord::Schema.define(version: 20140711152721) do
   add_index "stores", ["environment_type_id"], name: "index_stores_on_environment_type_id", using: :btree
   add_index "stores", ["retailer_id"], name: "index_stores_on_retailer_id", using: :btree
   add_index "stores", ["store_format_id"], name: "index_stores_on_store_format_id", using: :btree
+
+  create_table "subscriptions", force: true do |t|
+    t.integer  "user_id"
+    t.text     "countries"
+    t.text     "sectors"
+    t.text     "retailers"
+    t.text     "categories"
+    t.text     "projects"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id", using: :btree
+
+  create_table "themes", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "username"

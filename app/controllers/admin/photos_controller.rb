@@ -1,10 +1,16 @@
 class Admin::PhotosController < Admin::AdminController
   before_action :set_admin_photo, only: [:show, :edit, :update, :destroy]
+  before_action :get_user_photos, only: [:index]
 
   # GET /admin/photos
   # GET /admin/photos.json
   def index
+    # will only deal with user subscribed photos
     @admin_photos = Admin::Photo.all
+  end
+
+  def search
+    
   end
 
   # GET /admin/photos/1
@@ -62,6 +68,22 @@ class Admin::PhotosController < Admin::AdminController
   end
 
   private
+
+    def get_user_photos
+      # check all the subscriptions
+
+      # if user has restricted to projects
+        # get only photos in the assigned projects
+      
+      # else
+        # check from
+          # section subscription
+          # retailer subscription
+          # category subscription
+
+      # cache the photos for all application process until login out
+      
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_photo
       @admin_photo = Admin::Photo.find(params[:id])

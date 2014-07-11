@@ -2,32 +2,8 @@ require 'api_constraints'
 
 Rails.application.routes.draw do
 
-  
-  
-
-
   namespace :admin do
-    resources :media_types
-  end
-
-  namespace :admin do
-    resources :media_vehicles
-  end
-
-  namespace :admin do
-    resources :media_locations
-  end
-
-  namespace :admin do
-    resources :stores
-  end
-
-  namespace :admin do
-    resources :categories
-  end
-
-  namespace :admin do
-    resources :photos
+    resources :themes
   end
 
   namespace :api, defaults: {format: 'json'} do
@@ -49,17 +25,27 @@ Rails.application.routes.draw do
     resources :settings
     resources :users
     resources :roles
+    
     resources :retailers
     resources :sectors
-    resources :brand_owners
-    resources :brands
     resources :countries
+
+    resources :stores
     resources :channels
     resources :store_formats
     resources :environment_types
+    
     resources :audits do
       resources :photos
     end
+
+    resources :categories
+    resources :brand_owners
+    resources :brands
+    resources :media_locations
+    resources :media_vehicles
+    resources :media_types
+    
   end
 
   get 'login', to: 'sessions#new', as: 'login'

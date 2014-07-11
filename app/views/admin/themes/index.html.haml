@@ -1,0 +1,19 @@
+%h1 Listing admin_themes
+
+%table
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+
+  - @admin_themes.each do |admin_theme|
+    %tr
+      %td= admin_theme.name
+      %td= link_to 'Show', admin_theme
+      %td= link_to 'Edit', edit_admin_theme_path(admin_theme)
+      %td= link_to 'Destroy', admin_theme, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Theme', new_admin_theme_path

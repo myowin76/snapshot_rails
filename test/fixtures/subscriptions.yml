@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  countries: MyText
+  sectors: MyText
+  retailers: MyText
+  categories: MyText
+  projects: MyText
+
+two:
+  user_id: 
+  countries: MyText
+  sectors: MyText
+  retailers: MyText
+  categories: MyText
+  projects: MyText

@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Audit:
+  = @admin_photo.audit
+%p
+  %b Headline:
+  = @admin_photo.headline
+%p
+  %b Published:
+  = @admin_photo.published
+
+= link_to 'Edit', edit_admin_photo_path(@admin_photo)
+\|
+= link_to 'Back', admin_photos_path

@@ -29,7 +29,7 @@ class Admin::Store < ActiveRecord::Base
   private
 
   def country_name(id)
-    Country.find_by_id(id).name unless id.nil?
+    Admin::Country.find_by_id(id).name unless id.nil?
   end
 
 end

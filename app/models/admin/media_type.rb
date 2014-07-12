@@ -1,2 +1,2 @@
-class Admin::MediaType < Admin::AdminController
+class Admin::MediaType < ActiveRecord::Base
 end

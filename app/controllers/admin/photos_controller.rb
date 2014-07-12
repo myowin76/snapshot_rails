@@ -1,6 +1,6 @@
 class Admin::PhotosController < Admin::AdminController
   before_action :set_admin_photo, only: [:show, :edit, :update, :destroy]
-  before_action :get_user_photos, only: [:index]
+  # before_action :get_user_photos, only: [:index]
 
   # GET /admin/photos
   # GET /admin/photos.json

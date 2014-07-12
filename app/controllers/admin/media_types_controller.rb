@@ -1,4 +1,4 @@
-class Admin::MediaTypesController < ApplicationController
+class Admin::MediaTypesController < Admin::AdminController
   before_action :set_admin_media_type, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/media_types

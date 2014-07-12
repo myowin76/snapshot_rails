@@ -1,11 +1,11 @@
 class Admin::Photo < ActiveRecord::Base
 
-  acts_as_paranoid
-	before_destroy :save_who_deleted
+ #  acts_as_paranoid
+	# before_destroy :save_who_deleted
 
-  def save_who_deleted
-    # do stuff
-  end
+ #  def save_who_deleted
+ #    # do stuff
+ #  end
 
   belongs_to :audit, :class_name => 'Admin::Audit'
 

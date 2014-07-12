@@ -38,6 +38,7 @@ Rails.application.routes.draw do
     resources :audits do
       resources :photos
     end
+    resources :photos
 
     resources :categories
     resources :brand_owners
@@ -50,7 +51,7 @@ Rails.application.routes.draw do
 
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
-
+  resources :sessions
   # for locale
 
   # scope ':locale', locale: /#{I18n.available_locales.join("|")}/ do

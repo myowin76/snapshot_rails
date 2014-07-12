@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
   def create
 
     user = Admin::User.find_by_username_or_email(params[:login_input])
-    
+    byebug
     if user && user.authenticate(params[:password])
       
       if params[:remember_me]
@@ -16,27 +16,27 @@ class SessionsController < ApplicationController
       else
         cookies[:auth_token] = user.auth_token
       end
+      redirect_to root_path
 
       # add login details to login history table
 
       # if (user.role.name == 'Administrator')
       # if (user.roles.map(&:name).include?('Administrator'))
-      if user.is_admin?
-        redirect_to admin_dashboard_path, :notice => "Logged in!"
+      # if user.is_admin?
+      #   redirect_to admin_dashboard_path, :notice => "Logged in!"
 
-      # elsif (user.roles.map(&:name).include?('Customer Service'))
-      elsif user.is_customer_service?
-        redirect_to csdesk_dashboard_path, :notice => "Logged in!"
+      # # elsif (user.roles.map(&:name).include?('Customer Service'))
+      # elsif user.is_customer_service?
+      #   redirect_to csdesk_dashboard_path, :notice => "Logged in!"
 
-      else
-        if user.active?
-          redirect_to root_path
-        else
-          session[:temp_pwd] = params[:password]
-          redirect_to security_check_path
-        end
-          # redirect_to :controller => 'pages', :action => 'index', :notice => "Logged in!"
-      end
+      # else
+      #   if user.active?
+      #     redirect_to root_path
+      #   else
+      #     redirect_to root_path
+      #   end
+      #     # redirect_to :controller => 'pages', :action => 'index', :notice => "Logged in!"
+      # end
     else
       flash.now.alert = "Invalid email or password"
       render "new"

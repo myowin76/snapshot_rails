@@ -88,6 +88,6 @@
 
 # Audits
     Admin::Audit.delete_all
-    Admin::Audit.create(id: 1, name: 'Audi audit', store_id: 1, created_at: Time.now)
+    Admin::Audit.create(id: 1, audit_date: DateTime.parse('12/02/14'), store_id: 1, created_at: Time.now)
 
 # Photos
